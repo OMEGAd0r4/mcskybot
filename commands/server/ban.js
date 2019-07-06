@@ -21,31 +21,31 @@ class banCommand extends commando.Command {
     var banargs = message.content.slice(prefix.length).split(/ + /);
     var banuser = message.guild.member(message.mentions.users.first());
     var banreason = banargs.join(" ").slice(25);
-    var staffrole = message.guild.roles.find(`name`, "♕ | Staff Team");
+    var staffrole = message.guild.roles.find(`name`, "Mcsky");
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
     if (!message.member.roles.has(staffrole.id)) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | Violation**")
+        .setTitle("**Mcsky | Violation**")
         .setColor("#FF0000")
         .addField("⚠️ | User", "-> " + message.author.tag)
         .addField("💬 | Execution Message", "->" + message.content)
         .addField("📺 | Channel Executed", "-> " + message.channel)
         .addField("⏰ | Time", "-> " + message.createdAt)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")}));
-    if (!staffrole) return message.channel.send("There isn't a role called `♕ | Staff Team`.");
+        .setFooter("Mcsky Bot | created by hieu#0843")}));
+    if (!staffrole) return message.channel.send("There isn't a role called `Mcsky`.");
     if (!moderationlogs) return message.channel.send("There isn't a channel called `#moderation-logs`.");
     if (!banuser) return message.channel.send("Usage: .ban <user> <reason>.");
     if (!banreason) return message.channel.send("Usage: .ban <user> <reason>.");
     moderationlogs.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | Ban**")
+        .setTitle("**Mcsky | Ban**")
         .setColor("#4286f4")
         .addField("🔴 | Executor", "-> " + message.author.tag)
         .addField("🏹 | Target", "-> " + banuser.author.tag)
         .addField("☀️ | Reason", "-> " + banreason)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")}).then(banuser.ban(banreason));
+        .setFooter("Mcsky Bot | created by hieu#0843")}).then(banuser.ban(banreason));
     message.channel.send(banuser + "has been banned.");
-    banuser.sendMessage("You have been banned from the **__FrostedHost Network__** for the reason of | " + banreason);
+    banuser.sendMessage("You have been banned from the **__Mcsky Network__** for the reason of | " + banreason);
   }
 }
 
