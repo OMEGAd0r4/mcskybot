@@ -20,9 +20,9 @@ class msgallCommand extends commando.Command {
   {
     var msgallargs = message.content.slice(prefix.length).split(/ + /);
     var msgallmsg = msgallargs.join(" ").slice(7);
-    var managementrole = message.guild.roles.find(`name`, "Msgall Permission");
+    var managementrole = message.guild.roles.find(`name`, "Staff");
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
-    if (!managementrole) return message.channel.send("There isn't a role called `Msgall Permission`.");
+    if (!managementrole) return message.channel.send("There isn't a role called `Staff`.");
     if (!msgallmsg) return message.channel.send("Usage: .msgall <message>");
     if (!message.member.roles.has(managementrole.id)) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
         .setTitle("**Mcsky | Violation**")
