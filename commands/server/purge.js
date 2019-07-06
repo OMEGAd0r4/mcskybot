@@ -33,7 +33,7 @@ class purgeCommand extends commando.Command {
         .addField("⏰ | Time", "-> " + message.createdAt)
         .setTimestamp()
         .setFooter("Mcsky Bot | created by hieu#0843")}));
-    message.channel.bulkDelete(numberofmessagesdeleted);
+    message.channel.bulkDelete(numberofmessagesdeleted).then(message.channel.bulkDelete(numberofmessagesdeleted));
     moderationlogs.send({embed: new Discord.RichEmbed()
         .setTitle("**FrostedHost | Purge**")
         .setColor("#4286f4")
