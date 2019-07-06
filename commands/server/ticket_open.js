@@ -23,7 +23,7 @@ class ticketCommand extends commando.Command {
             
         if (message.guild.channels.exists("name", "support-" + message.author.id)) return message.channel.send("You already have a ticket open.");
         message.guild.createChannel(`support-${message.author.id}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "♕ | Staff Team");
+            let role = message.guild.roles.find("name", "Mcsky");
             let role2 = message.guild.roles.find("name", "@everyone");
             c.overwritePermissions(role, {
                 SEND_MESSAGES: true,
