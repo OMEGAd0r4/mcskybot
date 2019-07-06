@@ -22,12 +22,12 @@ class muteCommand extends commando.Command {
     var mutemember = message.guild.member(message.mentions.users.first());
     var mutereason = muteargs.join(" ").slice(26);
     var muterole = message.guild.roles.find(`name`, "Muted");
-    var staffrole = message.guild.roles.find(`name`, "Mcsky");
+    var staffrole = message.guild.roles.find(`name`, "Staff");
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
     if (!muterole) return message.channel.send("There isn't a role called `Muted`.");
     if (!mutemember) return message.channel.send("Usage: .mute <user> <reason>.");
     if (!mutereason) return message.channel.send("Usage: .mute <user> <reason>.");
-    if (!staffrole) return message.channel.send("There isn't a role called `Mcsky`.");
+    if (!staffrole) return message.channel.send("There isn't a role called `Staff`.");
     if (mutemember.roles.has(muterole.id)) return message.channel.send("That user has already been muted");
     if (!moderationlogs) return message.channel.send("There isn't a channel called `#moderation-logs`.");
     if (!message.member.roles.has(staffrole.id)) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
