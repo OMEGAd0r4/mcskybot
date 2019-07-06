@@ -24,12 +24,12 @@ class requestopCommand extends commando.Command {
     if (!requestopmessage) return message.channel.send("Usage: .requestop <message>.");
     if (!moderationlogs) return message.channel.send("There isn't a channel called `#moderation-logs`.");
     moderationlogs.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | RequestOP**")
+        .setTitle("**Mcsky | RequestOP**")
         .setColor("#4286f4")
         .addField("✨ | User", "-> " + message.author.tag)
         .addField("💡 | Request", "-> " + requestopmessage)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")})
+        .setFooter("Mcsky Bot | created by hieu#0843")})
     var messenger = message.member
     messenger.sendMessage("Thank you for sending a requestop message. We will respond within 24h; thanks for your patience.")
   }
