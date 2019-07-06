@@ -31,10 +31,10 @@ class announceCommand extends commando.Command {
     if (!message.member.roles.has(announceperm.id)) return message.channel.send("No Permission.");
 
     announcementchannel.send({embed: new Discord.RichEmbed()
-    .setTitle("**FrostedHost | Announcement**")
+    .setTitle("**Mcsky | Announcement**")
     .setColor("#4286f4")
     .addField(announcementmessage, "-> Management Team")
-    .setFooter("FrostedHost Bot | created by hieu#0843")})
+    .setFooter("Mcsky Bot | created by hieu#0843")})
 
     announcementchannel.send('@everyone')
   .then(msg => {
