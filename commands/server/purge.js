@@ -20,28 +20,26 @@ class purgeCommand extends commando.Command {
   {
     var messagedeleteargs = message.content.slice(prefix.length).split(/ +/);
     var numberofmessagesdeleted = messagedeleteargs.join(" ").slice(6);
-    var staffrole = message.guild.roles.find(`name`, "♕ | Staff Team");
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
-    if (!staffrole) return message.channel.send("There isn't a role called `♕ | Staff Team`.");
+    if (!staffrole) return message.channel.send("There isn't a role called `Mcsky`.");
     if (!moderationlogs) return message.channel.send("There isn't a channel called `#moderation-logs`.");
     if (!numberofmessagesdeleted) return message.channel.send("Usage: .purge <amount of messages>.");
     if (numberofmessagesdeleted == NaN) return message.channel.send("Please enter in a proper number.");
-    if (!message.member.roles.has(staffrole.id)) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | Violation**")
+    if (!message.member.hasPermission("MANGE_MESSAGES")) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
+        .setTitle("**Mcsky | Violation**")
         .setColor("#FF0000")
         .addField("⚠️ | User", "-> " + message.author.tag)
         .addField("💬 | Execution Message", "->" + message.content)
         .addField("📺 | Channel Executed", "-> " + message.channel)
         .addField("⏰ | Time", "-> " + message.createdAt)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")}));
-    message.channel.bulkDelete(numberofmessagesdeleted);
-    moderationlogs.send({embed: new Discord.RichEmbed()
+        .setFooter("Mcsky Bot | created by hieu#0843")}));
+    message.channel.bulkDelete(numberofmessagesdeleted).then(messages => moderationlogs.send({embed: new Discord.RichEmbed()
         .setTitle("**FrostedHost | Purge**")
         .setColor("#4286f4")
         .addField("📌 | Executor", message.author.tag)
         .addField("#️⃣ | Number", message.size)
-        .setFooter("FrostedHost Bot | created by hieu#0843")})   
+        .setFooter("Mcsky Bot | created by hieu#0843")}))    
   }
 }
 
