@@ -19,13 +19,13 @@ class membercountCommand extends commando.Command {
   async run(message)
   {
     message.channel.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | Members Count**")
+        .setTitle("**Mcsky | Members Count**")
         .setColor("#4286f4")
         .addField("✅ | Online Count", "-> " + message.guild.members.filter(member => member.presence.status === 'online').size)
         .addField("👥 | Member Count", "-> " + message.guild.memberCount)
         .addField("🤖 | Bot Count", "-> " + message.guild.members.filter(member => member.user.bot).size)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")});
+        .setFooter("Mcsky Bot | created by hieu#0843")});
   }
 }
 
