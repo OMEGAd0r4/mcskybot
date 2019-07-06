@@ -21,7 +21,7 @@ class banCommand extends commando.Command {
     var banargs = message.content.slice(prefix.length).split(/ + /);
     var banuser = message.guild.member(message.mentions.users.first());
     var banreason = banargs.join(" ").slice(25);
-    var staffrole = message.guild.roles.find(`name`, "Mcsky");
+    var staffrole = message.guild.roles.find(`name`, "Staff");
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
     if (!message.member.roles.has(staffrole.id)) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
         .setTitle("**Mcsky | Violation**")
@@ -32,7 +32,7 @@ class banCommand extends commando.Command {
         .addField("⏰ | Time", "-> " + message.createdAt)
         .setTimestamp()
         .setFooter("Mcsky Bot | created by hieu#0843")}));
-    if (!staffrole) return message.channel.send("There isn't a role called `Mcsky`.");
+    if (!staffrole) return message.channel.send("There isn't a role called `Staff`.");
     if (!moderationlogs) return message.channel.send("There isn't a channel called `#moderation-logs`.");
     if (!banuser) return message.channel.send("Usage: .ban <user> <reason>.");
     if (!banreason) return message.channel.send("Usage: .ban <user> <reason>.");
