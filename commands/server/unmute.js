@@ -20,7 +20,7 @@ class unmuteCommand extends commando.Command {
   {
     var unmutemember = message.guild.member(message.mentions.users.first());
     var unmuterole = message.guild.roles.find(`name`, "Muted");
-    var staffrole = message.guild.roles.find(`name`, "Mcsky");
+    var staffrole = message.guild.roles.find(`name`, "Staff");
     if (!unmutemember.roles.has(unmuterole.id)) return message.channel.send("That user isn't muted.");
     if (!message.member.roles.has(staffrole.id)) return message.channel.send("No permission.");
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
