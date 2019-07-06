@@ -26,30 +26,30 @@ class unmuteCommand extends commando.Command {
     var moderationlogs = message.guild.channels.find(`name`, "moderation-logs");
     if (!moderationlogs) return message.channel.send("There isn't a channel called `#moderation-logs`.");
     moderationlogs.send({embed: new Discord.RichEmbed()
-    .setTitle("**FrostedHost | Unmute**")
+    .setTitle("**Mcsky | Unmute**")
     .setColor("#4286f4")
     .addField("🔵 | Executor", "-> " + message.author.tag)
     .addField("🏹 | Target", "-> " + unmutemember.author.tag)}).then(unmutemember.removeRole(unmuterole.id));
     if (!message.member.roles.has(staffrole.id)) return message.channel.send("No permission.").then(moderationlogs.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | Violation**")
+        .setTitle("**Mcsky | Violation**")
         .setColor("#FF0000")
         .addField("⚠️ | User", "-> " + message.author.tag)
         .addField("💬 | Execution Message", "->" + message.content)
         .addField("📺 | Channel Executed", "-> " + message.channel)
         .addField("⏰ | Time", "-> " + message.createdAt)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")}));
+        .setFooter("Mcsky Bot | created by hieu#0843")}));
     if (unmutemember.roles.has(staffrole.id)) return message.channel.send("That user is a staff member.").then(moderationlogs.send({embed: new Discord.RichEmbed()
-        .setTitle("**FrostedHost | Violation**")
+        .setTitle("**Mcsky | Violation**")
         .setColor("#FF0000")
         .addField("⚠️ | User", "-> " + message.author.tag)
         .addField("💬 | Execution Message", "->" + message.content)
         .addField("📺 | Channel Executed", "-> " + message.channel)
         .addField("⏰ | Time", "-> " + message.createdAt)
         .setTimestamp()
-        .setFooter("FrostedHost Bot | created by hieu#0843")}));
+        .setFooter("Mcsky Bot | created by hieu#0843")}));
     message.channel.send(unmutemember + " has been unmuted.");
-    unmutemember.sendMessage("You have been muted from the **__FrostedHost Network__**");
+    unmutemember.sendMessage("You have been muted from the **__Mcsky Network__**");
   }
 }
 
