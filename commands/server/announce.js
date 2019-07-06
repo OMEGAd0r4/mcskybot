@@ -22,11 +22,11 @@ class announceCommand extends commando.Command {
 
     var announcementmessage = announcementargs.join(" ").slice(9);
 
-    var announceperm = message.guild.roles.find(`name`, "Announcement Permission");
+    var announceperm = message.guild.roles.find(`name`, "Staff");
 
     var announcementchannel = message.guild.channels.find(`name`, "announcement");
 
-    if (!announceperm) return message.channel.send("There isn't a role called *Announcement Permission*.");
+    if (!announceperm) return message.channel.send("There isn't a role called *Staff*.");
 
     if (!message.member.roles.has(announceperm.id)) return message.channel.send("No Permission.");
 
